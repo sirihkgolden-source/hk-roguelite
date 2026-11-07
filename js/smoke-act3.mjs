@@ -1,6 +1,6 @@
 /**
  * Act3 smoke：四角色各一鋪打到最終 Boss（籠門之王）＋通關結算資料核對
- * 用法：cd hk-roguelite && node js/smoke-act3.mjs
+ * 用法：node js/smoke-act3.mjs
  */
 import {
   META,

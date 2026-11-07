@@ -1,6 +1,6 @@
 /**
  * 平衡探針（唔入 commit 流程用都可）：最終 Boss 對四角色嘅粗勝率
- * 用法：cd hk-roguelite && node js/probe-act3.mjs
+ * 用法：node js/probe-act3.mjs
  * 政策：打得就打（費用夠、優先攻擊），唔夠費就結束回合（唔保留擋牌策略）——偏保守下限。
  */
 import { CHARACTERS, CARDS, enemyById } from "./data.js";

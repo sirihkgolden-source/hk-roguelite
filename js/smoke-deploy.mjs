@@ -1,12 +1,12 @@
 /**
- * 部署前自檢：確認 `hk-roguelite/` 可以純靜態託管（GitHub Pages）同離線開。
+ * 部署前自檢：確認本倉庫可以純靜態託管（GitHub Pages）同離線開。
  *
  * 檢查四件事：
  *   1. **所有相對路徑引用嘅檔案真係存在**（HTML link/script、資料層 assets）
- *   2. **冇絕對路徑**（`/xxx`）—— Pages 會掛喺 `/hongkong-card-game/hk-roguelite/` 底下，
+ *   2. **冇絕對路徑**（`/xxx`）—— Pages 會掛喺 `/hk-roguelite/` 底下，
  *      絕對路徑會 404
  *   3. **冇外部 CDN 依賴**（`https://…`）—— 否則「離線開」唔成立
- *   4. **冇 `_` 開頭嘅檔名**（Jekyll 會無視，雖然本 repo 有 .nojekyll）
+ *   4. **冇 `_` 開頭嘅檔名**（Jekyll 會無視；本 repo 根目錄有 `.nojekyll`）
  *
  * 純 Node，唔需要瀏覽器。用法：node js/smoke-deploy.mjs
  */
@@ -103,7 +103,7 @@ const underscore = allFiles.filter((f) => {
   return rel.split("/").some((part) => part.startsWith("_"));
 });
 // 有 .nojekyll 就冇問題；冇就要留意
-const hasNojekyll = existsSync(join(ROOT, "..", ".nojekyll"));
+const hasNojekyll = existsSync(join(ROOT, ".nojekyll"));
 if (!hasNojekyll) {
   assert(underscore.length === 0, `冇 .nojekyll 但有 _ 開頭路徑（Jekyll 會忽略）：${underscore.join(", ")}`);
 }

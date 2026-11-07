@@ -1,6 +1,6 @@
 ﻿/**
  * Round 3 smoke：四角色流程核對（被動旗標／金幣出口／Act 銜接）
- * 用法：cd hk-roguelite && node js/smoke-act2.mjs
+ * 用法：node js/smoke-act2.mjs
  */
 import {
   CHARACTERS,

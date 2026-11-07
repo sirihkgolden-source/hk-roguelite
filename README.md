@@ -1,7 +1,7 @@
-# 香江小風波（hk-roguelite）
+# 香江小風波
 
 > **正式產品名：《香江小風波》**  
-> 目錄暫名：`hk-roguelite/`（對外顯示名必須用《香江小風波》）  
+> 倉庫：[`sirihkgolden-source/hk-roguelite`](https://github.com/sirihkgolden-source/hk-roguelite)  
 > 狀態：完整三區（Act1 → Act2 → Act3 → 通關結算）・四角色  
 > **這是全新遊戲，不是《香江 Card Game》續作。**
 
@@ -9,16 +9,18 @@
 
 ### 公開網址（GitHub Pages）
 
-**<https://sirihkgolden-source.github.io/hongkong-card-game/hk-roguelite/>**
+**<https://sirihkgolden-source.github.io/hk-roguelite/>**
 
 - 手機／桌面瀏覽器直接開，唔使安裝
 - **零外部依賴**：字體用系統中文字體、圖全部喺 repo 內，弱網都開得快
 - 建議用 390×844 直版（iPhone 12/13/14）睇，體驗最貼設計
 
+> 本倉庫由 `hongkong-card-game/hk-roguelite/` 獨立出來。舊址  
+> `https://sirihkgolden-source.github.io/hongkong-card-game/hk-roguelite/` 已停用。
+
 ### 本機（離線）
 
 ```bash
-cd hk-roguelite
 python -m http.server 8766
 ```
 
@@ -37,20 +39,19 @@ python -m http.server 8766
 
 ## 部署（GitHub Pages）
 
-repo root 已設定 Pages（source: `main` 分支 `/`），所以 `hk-roguelite/` 直接可達：
+本倉庫係純靜態站，Pages source 用 `main` 分支 `/`（root）即可：
 
 | | URL |
 |---|---|
-| 遊戲 | <https://sirihkgolden-source.github.io/hongkong-card-game/hk-roguelite/> |
-| 入口檔 | `hk-roguelite/index.html` |
-| 資源 | `hk-roguelite/assets/…`（全部相對路徑） |
+| 遊戲 | <https://sirihkgolden-source.github.io/hk-roguelite/> |
+| 入口檔 | `index.html` |
+| 資源 | `assets/…`（全部相對路徑） |
 
-**唔使另開 `docs/` 或 `gh-pages`** —— 現有 root 部署已經覆蓋到子目錄，重複設定反而會多一份要同步嘅副本。
+**唔使另開 `docs/` 或 `gh-pages`。** 第一次開站：Repo Settings → Pages → Deploy from a branch → `main` / `/ (root)`。根目錄有 `.nojekyll`，Jekyll 唔會食檔。
 
 ### 部署前自檢
 
 ```bash
-cd hk-roguelite
 node js/smoke-deploy.mjs
 ```
 
@@ -67,8 +68,8 @@ node js/smoke-deploy.mjs
 ## 目錄結構
 
 ```
-hk-roguelite/          ← 目錄暫名；產品名《香江小風波》
-├── index.html         ← 新專案入口
+.                      ← 本倉庫根；產品名《香江小風波》
+├── index.html         ← 遊戲入口
 ├── css/
 │   ├── main.css       ← 主樣式（直版優先）
 │   └── landscape.css  ← 手機橫屏專用（三欄戰鬥／三欄地圖／橫排事件）
@@ -96,10 +97,10 @@ hk-roguelite/          ← 目錄暫名；產品名《香江小風波》
 
 | 規則 | 做法 |
 |------|------|
-| 新專案路徑 | 本倉庫子目錄 `hk-roguelite/`（產品名《香江小風波》） |
-| 新入口 | `hk-roguelite/index.html`（獨立於根目錄 `index.html`） |
-| 禁止 | **不修改**倉庫根目錄舊 demo 的主循環／`index.html`／既有遊戲邏輯 |
-| 舊作素材 | 僅**複製**進 `hk-roguelite/assets/` 再用於本切片；數值在 `js/data.js` 重表 |
+| 新專案路徑 | 獨立倉庫 [`sirihkgolden-source/hk-roguelite`](https://github.com/sirihkgolden-source/hk-roguelite)（產品名《香江小風波》） |
+| 新入口 | 本倉庫 `index.html`（與舊 demo 完全分開） |
+| 禁止 | **不修改**舊作 `hongkong-card-game` 的主循環／`index.html`／既有遊戲邏輯 |
+| 舊作素材 | 僅**複製**進 `assets/` 再用於本切片；數值在 `js/data.js` 重表 |
 | 禁止搬入 | office_chain／tale_chain、命運年／year_pools／過歲 UI、人生 meta |
 
 ## 遊戲內容
@@ -652,7 +653,6 @@ body { overflow-x: clip; overflow-x: hidden; }   /* 禁水平捲動 */
 ## 自測
 
 ```bash
-cd hk-roguelite
 node js/smoke-act2.mjs   # Act1–2 流程＋音效＋設定頁＋教學＋暫停＋存檔＋每日鉤＋牌組預覽＋長按詳情＋手牌一屏
 node js/smoke-act3.mjs   # 四角色×三區全程 → 最終 Boss → 結算資料
 node js/smoke-full.mjs   # 封測包：四角／分支／店／遺物／near-miss／再開一局
@@ -792,7 +792,6 @@ node js/smoke-deploy.mjs # 部署＋窄屏置中＋橫屏驗收：相對路徑�
 ### 本機驗收步驟
 
 ```bash
-cd hk-roguelite
 python -m http.server 8766
 ```
 

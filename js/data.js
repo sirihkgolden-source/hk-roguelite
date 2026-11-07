@@ -1,6 +1,6 @@
 /**
  * 《香江小風波》垂直切片資料表（新專案重表，不綁舊年池／office）
- * 目錄暫名 hk-roguelite；對外產品名《香江小風波》
+ * 倉庫 hk-roguelite；對外產品名《香江小風波》
  */
 
 /**
@@ -16,7 +16,7 @@ export const META = {
   act3Name: "城寨・天台",
   /** @deprecated 用 act1Name */
   actName: "後巷・夜醒",
-  isolationNote: "目錄暫名 hk-roguelite；產品名《香江小風波》／與根目錄舊香江 demo 隔離",
+  isolationNote: "倉庫 hk-roguelite；產品名《香江小風波》／與舊香江 Card Game demo 隔離",
 };
 
 /**
